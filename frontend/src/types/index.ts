@@ -44,3 +44,14 @@ export interface RoomsResponse {
     roomId: number;
     roomName: string;
 }
+
+//==============================================================================
+// State
+//==============================================================================
+
+export interface AuthState {
+    token?: string;
+    refreshToken?: string;
+    expirationDate?: string;
+    user?: UsersResponse;
+}
