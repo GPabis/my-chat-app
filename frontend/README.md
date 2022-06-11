@@ -1,46 +1,69 @@
-# Getting Started with Create React App
+# Simple Discord type chat app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+Application provides real time message communication with group of people. User can create and get invited to rooms.
 
-## Available Scripts
+## Tech Stack
 
-In the project directory, you can run:
+-   Typescript
+-   React 1.18
+-   Redux
+-   MUI
+-   Jest
+-   Node.js
+-   Express
+-   Postgress
+-   Websocket (socket.io)
 
-### `npm start`
+## TODO
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+-   Frontend
+    -   Layout :white_check_mark:
+    -   Redux Store :x:
+    -   Routing
+    -   Message Store State :x:
+        -   Actions to menage store :x:
+        -   Fetching messages thunk
+            -   Fetching on room entered
+            -   Fetching on scroll
+        -   Websockets user sended message
+    -   Users Store State :x:
+        -   Actions to menage store :x:
+        -   Fetching users thunk :x:
+        -   Websockets users status changes :x:
+        -   Websockets added user
+    -   Rooms Store State :x:
+        -   Actions to menage store :x:
+        -   Fetching rooms thunk
+        -   Websockets added to room
+        -   Websockets created room
+    -   Login and Register Page :x:
+    -   Auth Token Handling :x:
+    -   Create Room Form :x:
+    -   Invite User to room form :x:
+    -   Virtualization :x:
+-   Backend
+    -   API :x:
+        -   Users, GET by room / POST / :x:
+            -   GET /:roomID/user :x:
+            -   POST /user :x:
+        -   Message, GET by room / GET by ID range / POST send message :x:
+            -   GET /:roomID/messages :x:
+            -   GET /:roomID/messages/:messageID :x:
+            -   POST /:roomID/message :x:
+        -   Rooms, GET get users rooms / POST create room / PUT add user to Room :x:
+            -   GET /room :x:
+            -   POST /room :x:
+            -   PUT /room/:roomID :x:
+    -   Websockets :x:
+        -   Change user status on connected :x:
+        -   Emit message on message sended :x:
+        -   Emit room on create or invite :x:
+        -   Emit user added to room :x:
+    -   Model :x:
+        -   User Model :x:
+        -   Message Model :x:
+        -   Rooms Model :x:
+    -   PostgreSQL DB communication :x:
+    -   Auth :x:
+    -   Error Handling :x:
+    -   Validation :x:
