@@ -1,36 +1,76 @@
 import { MessageResponse } from '../types';
-import stc from 'string-to-color';
-import invert from 'invert-color';
 
 export const messagesMock: MessageResponse[] = [
     {
-        userId: '1',
-        userName: 'JanTenPan',
-        dateText: '10/12/2022',
+        userId: 1,
+        dateText: new Date().getDate().toLocaleString(),
         dateNumber: new Date().getTime(),
-        img: `https://ui-avatars.com/api/?name=JanTenPan&background=${stc('JanTenPan').replace('#', '')}&color=${invert(
-            stc('JanTenPan'),
-        ).replace('#', '')}`,
         message: 'Hello',
     },
     {
-        userId: '1',
-        userName: 'JanTenPan',
-        dateText: '10/12/2022',
+        userId: 1,
+        dateText: new Date().getDate().toLocaleString(),
         dateNumber: new Date().getTime(),
-        img: `https://ui-avatars.com/api/?name=JanTenPan&background=${stc('JanTenPan').replace('#', '')}&color=${invert(
-            stc('JanTenPan'),
-        ).replace('#', '')}`,
         message: 'Whats Up?',
     },
     {
-        userId: '2',
-        userName: 'Franc',
-        dateText: '10/12/2022',
+        userId: 2,
+        dateText: new Date().getDate().toLocaleString(),
         dateNumber: new Date().getTime(),
-        img: `https://ui-avatars.com/api/?name=Franc&background=${stc('Franc').replace('#', '')}&color=${invert(
-            stc('Franc'),
-        ).replace('#', '')}`,
         message: 'Not much. You?',
+    },
+    {
+        userId: 3,
+        dateText: new Date().getDate().toLocaleString(),
+        dateNumber: new Date().getTime(),
+        message: 'Sup guys! Are we playing?',
+    },
+    {
+        userId: 1,
+        dateText: new Date().getDate().toLocaleString(),
+        dateNumber: new Date().getTime(),
+        message: 'Sure',
+    },
+    {
+        userId: 1,
+        dateText: new Date().getDate().toLocaleString(),
+        dateNumber: new Date().getTime(),
+        message: 'COD?',
+    },
+    {
+        userId: 4,
+        dateText: new Date().getDate().toLocaleString(),
+        dateNumber: new Date().getTime(),
+        message: 'Yo',
+    },
+    {
+        userId: 4,
+        dateText: new Date().getDate().toLocaleString(),
+        dateNumber: new Date().getTime(),
+        message: 'BF, maybe?',
+    },
+    {
+        userId: 3,
+        dateText: new Date().getDate().toLocaleString(),
+        dateNumber: new Date().getTime(),
+        message: 'OK',
+    },
+    {
+        userId: 2,
+        dateText: new Date().getDate().toLocaleString(),
+        dateNumber: new Date().getTime(),
+        message: 'OK',
+    },
+    {
+        userId: 1,
+        dateText: new Date().getDate().toLocaleString(),
+        dateNumber: new Date().getTime(),
+        message: 'OK',
+    },
+    {
+        userId: 1,
+        dateText: new Date().getDate().toLocaleString(),
+        dateNumber: new Date().getTime(),
+        message: 'Give me a sec',
     },
 ];

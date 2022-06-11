@@ -4,10 +4,13 @@ import invert from 'invert-color';
 import { Box, Button, TextField } from '@mui/material';
 import { MessageProp } from '../types';
 import { messagesMock } from '../mock/messages';
+import { usersMock } from '../mock/users';
 import { useEffect, useState } from 'react';
+import ScrollArea from 'react-scrollbar';
 
 const ChatContainer = styled.div`
     height: calc(100vh - 48px);
+    max-height: calc(100vh - 48px);
     display: flex;
     flex-direction: column;
 `;
@@ -35,9 +38,10 @@ const ChatInput = styled(TextField)`
 
 const MessageContainer = styled.div`
     display: flex;
+    margin-bottom: 5px;
 `;
 
-const AvatarContainer = styled.div`
+export const AvatarContainer = styled.div`
     height: 50px;
     width: 50px;
     border: 1px solid #ccc;
@@ -46,6 +50,7 @@ const AvatarContainer = styled.div`
     justify-content: center;
     align-items: center;
     margin-right: 15px;
+    position: relative;
     img {
         height: 50px;
         width: 50px;
@@ -54,7 +59,7 @@ const AvatarContainer = styled.div`
     }
 `;
 
-const UserName = styled.h6`
+export const UserName = styled.h6`
     font-size: 16px;
     margin: 0;
     padding-right: 5px;
@@ -81,8 +86,8 @@ const MessageText = styled.p<{ textColor: string; backgroudnColor: string }>`
     border-radius: 10px;
 `;
 
-const Message: React.FC<MessageProp> = ({ userId, userName, img, dateText, messages }) => {
-    const mainColor = stc(userName + userId);
+const Message: React.FC<MessageProp> = ({ userName, img, dateText, messages }) => {
+    const mainColor = stc(userName);
     const invertedColor = invert(mainColor);
 
     const messagesElements = messages.map((message) => (
@@ -120,17 +125,22 @@ const Chat: React.FC = () => {
                 updatedMsg.pop();
                 updatedMsg = [...updatedMsg, lastMsg];
             } else {
-                updatedMsg = [
-                    ...updatedMsg,
-                    {
-                        userId: msgRes.userId,
-                        userName: msgRes.userName,
-                        dateNumber: msgRes.dateNumber,
-                        dateText: msgRes.dateText,
-                        img: msgRes.img,
-                        messages: [msgRes.message],
-                    },
-                ];
+                const user = usersMock.find((user) => user.userId === msgRes.userId);
+                if (user) {
+                    updatedMsg = [
+                        ...updatedMsg,
+                        {
+                            userId: msgRes.userId,
+                            userName: user.userName,
+                            dateNumber: msgRes.dateNumber,
+                            dateText: msgRes.dateText,
+                            img: user.userAvatar,
+                            messages: [msgRes.message],
+                        },
+                    ];
+                } else {
+                    throw Error('Wrong User ID');
+                }
             }
         });
         setMessages(updatedMsg);
@@ -150,7 +160,9 @@ const Chat: React.FC = () => {
 
     return (
         <ChatContainer>
-            <ChatMessagesContainer>{elements}</ChatMessagesContainer>
+            <ScrollArea speed={0.1}>
+                <ChatMessagesContainer>{elements}</ChatMessagesContainer>
+            </ScrollArea>
             <ChatInputContainer>
                 <ChatInput fullWidth />
                 <Button>SEND</Button>

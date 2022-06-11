@@ -4,6 +4,8 @@ import { Main } from '../components/Content';
 import { Header } from '../components/Header';
 import { Sidebar } from '../components/Sidebar';
 import LayoutContext from '../context/LayoutContext';
+import RoomsList from './RoomsList';
+import UsersList from './UsersList';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const { open, sidebarWidth } = useContext(LayoutContext);
@@ -12,7 +14,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <Sidebar />
+            <Sidebar content={[<RoomsList />, <UsersList />]} />
             <Main sidebarWidth={sidebarWidth} open={open}>
                 <Header />
                 {children}

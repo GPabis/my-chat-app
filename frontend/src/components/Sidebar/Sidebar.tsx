@@ -14,6 +14,44 @@ const DrawerHeader = styled.div`
     padding: 3px 5px;
 `;
 
+export const SidebarListContainer = styled.div`
+    height: auto;
+    max-height: calc(50vh - 23px);
+    display: flex;
+    flex-direction: column;
+`;
+
+export const SidebarListTitle = styled.h3`
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-top: 0;
+`;
+
+export const SidebarList = styled.ul`
+    padding: 0;
+    list-style: none;
+    height: 100%;
+`;
+
+export const SidebarListElement = styled.li`
+    padding: 5px 0;
+`;
+
+export const SidebarButton = styled.button`
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    :hover {
+        font-weight: 600;
+    }
+`;
+
 const Sidebar: React.FC<SidebarProps> = ({ content }) => {
     const { open, closeSidebarHandler, sidebarWidth } = useContext(LayoutContext);
 

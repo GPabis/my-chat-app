@@ -14,7 +14,7 @@ export interface LayoutContextState {
 //==============================================================================
 
 export interface MessageProp {
-    userId: string;
+    userId: number;
     userName: string;
     img: string;
     dateText: string;
@@ -27,10 +27,20 @@ export interface MessageProp {
 //==============================================================================
 
 export interface MessageResponse {
-    userId: string;
-    userName: string;
-    img: string;
+    userId: number;
     dateText: string;
     dateNumber: number;
     message: string;
+}
+
+export interface UsersResponse {
+    userId: number;
+    userName: string;
+    userAvatar: string;
+    userStatus: 'online' | 'offline';
+}
+
+export interface RoomsResponse {
+    roomId: number;
+    roomName: string;
 }
