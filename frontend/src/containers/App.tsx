@@ -1,18 +1,16 @@
 import Layout from './Layout';
-import { io } from 'socket.io-client';
 import Chat from './Chat';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const App: React.FC = () => {
-    const socket = io('http://localhost:3010');
-
-    socket.on('connect', () => {
-        console.log(socket.id); // x8WIv7-mJelg7on_ALbx
-    });
-
     return (
-        <Layout>
-            <Chat />
-        </Layout>
+        <BrowserRouter>
+            <Layout>
+                <Routes>
+                    <Route element={<Chat />} path="/room/:roomName" />
+                </Routes>
+            </Layout>
+        </BrowserRouter>
     );
 };
 

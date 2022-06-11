@@ -11,7 +11,7 @@ import roomsMock from '../mock/rooms';
 const RoomsList: React.FC = () => {
     const roomsElements = roomsMock.map((room) => (
         <SidebarListElement>
-            <SidebarButton>{room.roomName}</SidebarButton>
+            <SidebarButton to={`/room/${room.roomName}`}>{room.roomName}</SidebarButton>
         </SidebarListElement>
     ));
 

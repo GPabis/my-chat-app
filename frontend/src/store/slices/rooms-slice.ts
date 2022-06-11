@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { RoomsResponse } from '../../types';
+import { RoomsState } from '../../types';
 import { RootState } from '../store';
 
-const initialState: RoomsResponse[] = [];
+const initialState: RoomsState = {};
 
 const roomsSlice = createSlice({
     name: 'rooms',

@@ -55,3 +55,11 @@ export interface AuthState {
     expirationDate?: string;
     user?: UsersResponse;
 }
+
+export interface RoomsState {
+    activeRoome?: {
+        activeRoomID: number;
+        activeRoomName: string;
+    };
+    rooms?: RoomsResponse[];
+}

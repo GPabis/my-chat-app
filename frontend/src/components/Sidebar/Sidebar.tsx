@@ -3,6 +3,7 @@ import { ChevronLeft } from '@mui/icons-material';
 import styled from '@emotion/styled';
 import { useContext } from 'react';
 import LayoutContext from '../../context/LayoutContext';
+import { Link } from 'react-router-dom';
 
 interface SidebarProps {
     content?: React.ReactNode[];
@@ -38,7 +39,7 @@ export const SidebarListElement = styled.li`
     padding: 5px 0;
 `;
 
-export const SidebarButton = styled.button`
+export const SidebarButton = styled(Link)`
     font-size: 16px;
     font-weight: 400;
     outline: none;
@@ -46,6 +47,8 @@ export const SidebarButton = styled.button`
     border: none;
     padding: 0;
     cursor: pointer;
+    color: #000;
+    text-decoration: none;
 
     :hover {
         font-weight: 600;
