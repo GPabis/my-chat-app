@@ -19,7 +19,7 @@ Application provides real time message communication with group of people. User 
 -   Frontend
     -   Layout :white_check_mark:
     -   Redux Store :white_check_mark:
-    -   Routing
+    -   Routing :white_check_mark:
     -   Message Store State :x:
         -   Actions to menage store :x:
         -   Fetching messages thunk
