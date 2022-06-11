@@ -18,7 +18,7 @@ Application provides real time message communication with group of people. User 
 
 -   Frontend
     -   Layout :white_check_mark:
-    -   Redux Store :x:
+    -   Redux Store :white_check_mark:
     -   Routing
     -   Message Store State :x:
         -   Actions to menage store :x:
