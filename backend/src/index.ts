@@ -1,9 +1,19 @@
-import express, { Request, Response } from 'express';
+import { config } from 'dotenv';
+import express from 'express';
 import { Server, Socket } from 'socket.io';
 import messageHandler from './websockets/messageHandler';
+import loginRoute from './routes/auth/login';
+import registerRoute from './routes/auth/register';
+import cors from 'cors';
+config();
 
 const app = express();
 const PORT = 3010;
+
+app.use(cors());
+app.use(express.json());
+app.use(loginRoute);
+app.use(registerRoute);
 
 const server = app.listen(PORT, () => {
     console.log(`Server Listen on port ${PORT}`);
